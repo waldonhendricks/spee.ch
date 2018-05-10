@@ -57,7 +57,7 @@ var returnSagaWithParams = function returnSagaWithParams(saga, params) {
 module.exports = function (req, res) {
   var context = {}; // configure the reducers by passing initial state configs
 
-  var MyReducers = (0, _spee.Reducers)(siteConfig);
+  var MyReducers = (0, _spee.Reducers)(siteConfig, viewsConfig);
   var MyApp = (0, _spee.App)(viewsConfig);
   var MyGAListener = (0, _spee.GAListener)(siteConfig); // create and apply middleware
 

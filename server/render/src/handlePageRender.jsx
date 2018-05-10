@@ -20,8 +20,8 @@ const viewsConfig = require('../../../config/viewsConfig.js');
 module.exports = (req, res) => {
   let context = {};
 
-  // customize the reducer by passing in intial state configs
-  const MyReducers = Reducers(siteConfig);
+  // customize the reducer & app by passing in intial state configs
+  const MyReducers = Reducers(siteConfig, viewsConfig);
   const MyApp = App(viewsConfig);
   const MyGAListener = GAListener(siteConfig);
 

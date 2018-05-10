@@ -30,9 +30,9 @@ var siteConfig = require('../../../config/siteConfig.js');
 var viewsConfig = require('../../../config/viewsConfig.js');
 
 module.exports = function (req, res) {
-  var context = {}; // customize the reducer by passing in intial state configs
+  var context = {}; // customize the reducer & app by passing in intial state configs
 
-  var MyReducers = (0, _spee.Reducers)(siteConfig);
+  var MyReducers = (0, _spee.Reducers)(siteConfig, viewsConfig);
   var MyApp = (0, _spee.App)(viewsConfig);
   var MyGAListener = (0, _spee.GAListener)(siteConfig); // create a new Redux store instance
 

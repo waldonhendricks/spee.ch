@@ -29,7 +29,7 @@ module.exports = (req, res) => {
   let context = {};
 
   // configure the reducers by passing initial state configs
-  const MyReducers = Reducers(siteConfig);
+  const MyReducers = Reducers(siteConfig, viewsConfig);
   const MyApp = App(viewsConfig);
   const MyGAListener = GAListener(siteConfig);
 
