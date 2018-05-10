@@ -33,7 +33,7 @@ module.exports = function (req, res) {
   var context = {}; // customize the reducer & app by passing in intial state configs
 
   var MyReducers = (0, _spee.Reducers)(siteConfig, viewsConfig);
-  var MyApp = (0, _spee.App)(viewsConfig);
+  var MyApp = _spee.App;
   var MyGAListener = (0, _spee.GAListener)(siteConfig); // create a new Redux store instance
 
   var store = (0, _redux.createStore)(MyReducers); // render component to a string
@@ -43,7 +43,9 @@ module.exports = function (req, res) {
   }, _react.default.createElement(_reactRouterDom.StaticRouter, {
     location: req.url,
     context: context
-  }, _react.default.createElement(MyGAListener, null, _react.default.createElement(MyApp, null))))); // get head tags from helmet
+  }, _react.default.createElement(MyGAListener, null, _react.default.createElement(MyApp, {
+    store: store
+  }))))); // get head tags from helmet
 
   var helmet = _reactHelmet.default.renderStatic(); // check for a redirect
 

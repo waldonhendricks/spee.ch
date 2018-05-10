@@ -22,7 +22,7 @@ module.exports = (req, res) => {
 
   // customize the reducer & app by passing in intial state configs
   const MyReducers = Reducers(siteConfig, viewsConfig);
-  const MyApp = App(viewsConfig);
+  const MyApp = App;
   const MyGAListener = GAListener(siteConfig);
 
   // create a new Redux store instance
@@ -33,7 +33,7 @@ module.exports = (req, res) => {
     <Provider store={store}>
       <StaticRouter location={req.url} context={context}>
         <MyGAListener>
-          <MyApp />
+          <MyApp store={store} />
         </MyGAListener>
       </StaticRouter>
     </Provider>
